@@ -80,6 +80,12 @@ createApp({
         p.sku.includes(texto)
       ).slice(0, 5)
 
+      if (this.sugerencias.length === 0) {
+        this.sugerencias = this.productos.filter(p =>
+          p.nombre.includes(texto)
+        ).slice(0, 5)
+      }
+      
       this.producto = this.productos.find(p => p.sku === texto)
 
       this.error = (!this.producto && this.sugerencias.length === 0)
